@@ -90,6 +90,7 @@ namespace skins\chameleon {
 			// The headelement defines the <body> tag itself, it shouldn't be included in the html text
 			// To add attributes or classes to the body tag override addToBodyAttributes() in SkinChameleon
 			$this->html( 'headelement' );
+			echo file_get_contents('http://weimarnetz.de/_navbar.php');
 			echo $this->getRootComponent()->getHtml();
 			$this->printTrail(); ?>
 

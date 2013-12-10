@@ -10,7 +10,8 @@ Setup instructions
 * maybe check newer versions for bootstrap extension and chameleon theme
 * copy wn-theme.less and wn-variables.less to mediawiki base dir, those files contain colours and designs
 * add the following lines to LocalSettings.php
-```
+
+```php
 //bootstrap extension, required for design
 require_once( "$IP/extensions/Bootstrap/Bootstrap.php" );
 //chameleon skin, a bootstrap based skin

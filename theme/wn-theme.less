@@ -1,0 +1,338 @@
+/*!
+ * Freifunk (Bootstrap Theme)
+ *
+ * Copyright 2013 Max F. Albrecht <1@178.is>
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * This theme was built using the Themestrap Bootstrap Theme Kit.
+ * https://github.com/divshot/themestrap
+ */
+
+/* TMP: font from google */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,400,400italic,700,700italic|Oswald:400,700|Lekton:700);
+/*TMP*/
+
+/* import bootstrap-default theme (for gradients) */
+@import "extensions/Bootstrap/bootstrap/less/theme.less";
+@import "bootstrap.less";
+
+/* font awesome */
+/*@import "../bower_components/font-awesome/less/font-awesome.less";
+*/
+
+// Freifunk CI
+// -------------------------
+
+/* original logo font is "Swiss-911 Extra-compressed" */
+/* the closest open source is "Oswald" */
+@ff-headfont: 'Oswald';
+
+/* for body text "Roboto Condensed": matches, but is more readable */
+@ff-mainfont: 'Roboto Condensed';
+
+/* very stylized monospace fonts, also slightly condensed */
+@ff-monofont: 'Lekton';
+
+/* official colors from Freifunk 
+   <http://wiki.freifunk.net/Freifunk-Styles#Freifunk-Farben>  */
+@ff-Y: #ffb400;    // "official"
+@ff-M: #dc0067;    // "official"
+@ff-C: #009ee0;    // "official"
+@ff-K: @gray-dark; // #333
+@ff-R: mix(@ff-M, @ff-Y, 66.7%);
+@ff-O: mix(@ff-M, @ff-Y, 33.3%);
+
+/* make lighter and darker tones */
+@ff-Yl: lighten(@ff-Y, 10%);
+@ff-Ml: lighten(@ff-M, 10%);
+@ff-Cl: lighten(@ff-C, 10%);
+
+@ff-Yll: lighten(@ff-Y, 15%);
+@ff-Mll: lighten(@ff-M, 15%);
+@ff-Cll: lighten(@ff-C, 15%);
+
+@ff-Ylll: lighten(@ff-Y, 25%);
+@ff-Mlll: lighten(@ff-M, 25%);
+@ff-Clll: lighten(@ff-C, 25%);
+
+@ff-Yd: darken(@ff-Y, 10%);
+@ff-Md: darken(@ff-M, 10%);
+@ff-Cd: darken(@ff-C, 10%);
+
+@ff-Ydd: darken(@ff-Y, 15%);
+@ff-Mdd: darken(@ff-M, 15%);
+@ff-Cdd: darken(@ff-C, 15%);
+
+@ff-Yddd: darken(@ff-Y, 25%);
+@ff-Mddd: darken(@ff-M, 25%);
+@ff-Cddd: darken(@ff-C, 25%);
+
+
+
+/* TYPO */
+
+p.lead {
+  font-size: inherit;
+}
+
+.jumbotron {
+  h1, .h1 {
+    color: @ff-Md;
+  }
+}
+
+.well, .jumbotron {
+  text-shadow: 1px 1px 0px hsla(0,0%,100%,.3);
+}
+
+a[class$="-brand"] {
+  font-weight: 700;
+  color:red;
+}
+
+ol, ul {
+  padding-left: 1em;
+}
+
+
+.navbar-brand {
+  font-family: @headings-font-family;
+}
+
+/* LAYOUT */
+
+/* space out buttons inside jumbotrons */
+.jumbotron {
+  .btn {
+    margin: 0.5em 0.5em 0 0;  }
+}
+
+footer {
+  margin-top: 3em;
+}
+
+/* - BORDERS - */
+
+.list-group-item {
+/*    border-width: 3px;*/
+}
+
+.panel > .list-group .list-group-item {
+/*  border-width: 2px 0;*/
+}
+
+
+.page-header {
+  border-bottom-width: 3px;
+}
+
+/* ALERTS*/
+.alert {
+  border-width: 3px;
+  border-color: @ff-Md;
+}
+.close,
+.alert > .close {
+  color: @ff-Md;
+  .opacity(.75);
+
+  &:hover,
+  &:focus {
+
+    .opacity(1.0);
+  }
+
+}
+
+
+/* - PANELS - */
+
+.panel {
+  border-width: 3px;
+  .box-shadow(none);
+  
+  .panel-heading {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+  }
+}
+
+.panel-heading {
+  border-bottom-width: 3px;
+}
+.panel-footer {
+  border-top-width: 3px;
+}
+.panel-default > .panel-heading {
+/*  color: @panel-default-border;*/
+}
+
+.panel-center {
+  text-align: center;
+}
+
+/* TABLES */
+.table {
+  // Cells
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 2px solid @table-border-color;
+      }
+    }
+  }
+  // Bottom align for column headings
+  thead > tr > th {
+    border-bottom: 3px solid @table-border-color;
+  }
+  // Account for multiple tbody instances
+  tbody + tbody {
+    border-top: 2px solid @table-border-color;
+  }
+}
+
+.table-bordered {
+  border: 3px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 2px solid @table-border-color;
+      }
+    }
+  }
+  > thead {
+    > tr {
+      > th,
+      > td {
+        border-bottom-width: 3px;
+      }
+    }
+  }
+}
+
+/* --- THEME SPECIALS --- */
+
+body {
+  padding-bottom: 50px;  
+  padding-top: 50px;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* set class 'fixed-nav' on body to adjust for fixed navbar */
+body.fixed-nav {
+  padding-top: 50px;
+}
+
+
+/* TOP alerts, for use on top of main page */
+.alert-top {
+  border-width: 0 0 3px 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  
+  &.alert-success {
+    color: @alert-success-text;
+    background-color: @alert-success-bg;
+    border-color: @alert-success-text;
+  }
+}
+
+
+/*Freifunk Logo (background)*/
+
+@ff-logo-bg-image: url(../../images/freifunk-logo.svg);
+@ff-logo-bg-size: 25% auto;
+@ff-logo-bg-size-lg: auto 75%;
+@ff-logo-bg-position: 94% 17%;
+@ff-logo-bg-position-lg: 96% 63.5%;
+@ff-logo-bg-attachment: scroll;
+
+.ff-logo-bg {
+  background-image: @ff-logo-bg-image;
+  background-size: auto @ff-logo-bg-size;
+  background-position: @ff-logo-bg-position;
+  background-attachment: @ff-logo-bg-attachment;
+  background-repeat: no-repeat;
+
+  /* cut container on right side for less type on logo */
+  .container {
+    padding-right: 6em;
+  }
+}
+
+
+/* CLOUDS!
+   - JUMBOTRONs
+   - TOP ALERTS           */
+
+@cloud-bg-image: url(../../images/wolke.min.png);
+@cloud-bg-size: 200% auto;
+@cloud-bg-position: 50% 5%;
+@cloud-bg-position-lg: 50% 50%;
+@cloud-bg-attachment: fixed;
+
+.cloudy,
+.alert-top, 
+.jumbotron {
+  background-image: @cloud-bg-image;
+  background-size: @cloud-bg-size;
+  background-position: @cloud-bg-position;
+  background-attachment: @cloud-bg-attachment;
+  background-repeat: no-repeat;
+}
+
+/* take care of elements that have cloud+logo */
+.cloudy.ff-logo-bg,
+.alert-top.ff-logo-bg, 
+.jumbotron.ff-logo-bg {
+  background-image: @cloud-bg-image, @ff-logo-bg-image;
+  background-size: @cloud-bg-size, @ff-logo-bg-size;
+  background-position: @cloud-bg-position, @ff-logo-bg-position;
+  background-attachment: @cloud-bg-attachment, @ff-logo-bg-attachment;
+}
+
+/* larger-than-mobile overides for cloud and cloud+logo bg*/
+@media (min-width: 768px) {
+  .cloudy, 
+  .alert-top, 
+  .jumbotron {
+    background-position: @cloud-bg-position;
+    background-size: 125% auto;
+
+    &.ff-logo-bg  {
+      background-position: @cloud-bg-position-lg, @ff-logo-bg-position-lg;
+      background-size: 125% auto, @ff-logo-bg-size;
+    }
+  }
+  
+  /* cut container on right side for less type on logo */
+  .ff-logo-bg .container {
+    padding-right: 6em;
+  }
+}
+
+/* the medium size makes the cloud look good on tablets… */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .cloudy, 
+  .alert-top, 
+  .jumbotron {
+    background-position: @cloud-bg-position;
+
+    &.ff-logo-bg  {
+      background-position: @cloud-bg-position, @ff-logo-bg-position-lg;
+    }
+  }
+}
+
+
+/* ------- */
